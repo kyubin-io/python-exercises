@@ -28,5 +28,6 @@ while (count):
     print("Guess Again.")
     count -= 1
 
-print("You've run out of guesses, you lose.")
+if count == 0:
+    print("You've run out of guesses, you lose.")
 
