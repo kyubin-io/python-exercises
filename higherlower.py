@@ -2,10 +2,39 @@ from data import game_data
 import random
 
 
-# create two slots and put random data into them
+def compare(a, b, answer):
+    result = 0
+    if a.follower_count > b.follower_count:
+        result = "A"
+    else:
+        result = "B"
+    
+    return result == answer
 
-# let user choose which one has more followers
+score = 0
+def game(score):
 
-# if the user was wrong, print the result and let user know their final score
+    # create two slots and put random data into them
+    A = random.choice(data)
+    B = random.choice(data)
+    
 
-# if the user wins, print the next question
+    print(f"Compare A: {A.name}, {A.description}, from {A.country}.")
+    print("VS")
+    print(f"Against B: {B.name}, {B.description}, from {B.country}.")
+
+    # let user choose which one has more followers
+    winner = input("Who has more followers? Type 'A' or 'B': ")
+
+    # if the user was wrong, print the result and let user know their final score
+    result = compare(A, B, winner)
+    if result == False:
+        return print(f"Sorry, that's wrong. Final score: {score}")
+
+
+
+    # if the user wins, print the next question
+    else:
+        game(score + 1)
+
+game()
