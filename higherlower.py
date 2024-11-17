@@ -1,10 +1,10 @@
-from data import game_data
+from game_data import data
 import random
 
 
 def compare(a, b, answer):
     result = 0
-    if a.follower_count > b.follower_count:
+    if a["follower_count"] > b["follower_count"]:
         result = "A"
     else:
         result = "B"
@@ -19,9 +19,9 @@ def game(score):
     B = random.choice(data)
     
 
-    print(f"Compare A: {A.name}, {A.description}, from {A.country}.")
+    print(f"Compare A: {A["name"]}, {A["description"]}, from {A["country"]}.")
     print("VS")
-    print(f"Against B: {B.name}, {B.description}, from {B.country}.")
+    print(f"Against B: {B["name"]}, {B["description"]}, from {B["country"]}.")
 
     # let user choose which one has more followers
     winner = input("Who has more followers? Type 'A' or 'B': ")
@@ -37,4 +37,4 @@ def game(score):
     else:
         game(score + 1)
 
-game()
+game(score)
