@@ -12,12 +12,12 @@ def compare(a, b, answer):
     return result == answer
 
 score = 0
-def game(score):
 
-    # create two slots and put random data into them
-    A = random.choice(data)
-    B = random.choice(data)
-    
+# create two slots and put random data into them
+A = random.choice(data)
+B = random.choice(data)
+
+def game(score, A, B):
 
     print(f"Compare A: {A["name"]}, {A["description"]}, from {A["country"]}.")
     print("VS")
@@ -35,6 +35,9 @@ def game(score):
 
     # if the user wins, print the next question
     else:
-        game(score + 1)
+        if winner == "B":
+            A = B
+        B = random.choice(data)
+        game(score + 1, A, B)
 
-game(score)
+game(score, A, B)
