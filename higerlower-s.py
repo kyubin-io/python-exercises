@@ -1,5 +1,10 @@
+from game_data import data
+import random
 
 # Generate a ramdom account from the game data
+account_a = random.choice(data)
+account_b = random.choice(data)
+
 
 # Format the account data into printable format.
 
@@ -8,11 +13,11 @@
 # Check if user is correct
 
 ## Get follower count of each account
-## Use if statement to check if user is correct
+## Use if statement to check if user is correct.
 
-# Give user feedback on their guess
+# Give user feedback on their guess.
 
-# score keeping
+# score keeping.
 
 # Make the game repeatable.
 
