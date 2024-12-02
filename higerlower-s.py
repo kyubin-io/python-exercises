@@ -41,6 +41,8 @@ while game_should_continue:
     # Ask user for a guess.
     guess = input("Who has more followers? Type 'A' or 'B': ").lower()
 
+    # Clear the screen
+    print("\n" * 20)
 
     # Check if user is correct
     ## Get follower count of each account
