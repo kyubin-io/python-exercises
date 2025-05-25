@@ -32,11 +32,11 @@ while True :
         
         if sum < MENU[coffee]["cost"] :
             print("not enough money")
-        if resources["water"] < MENU[coffee]["ingredients"]["water"]:
+        elif resources["water"] < MENU[coffee]["ingredients"]["water"]:
             print(f"Sorry there is not enough water.")
-        if resources["milk"] < MENU[coffee]["ingredients"]["milk"]:
+        elif resources["milk"] < MENU[coffee]["ingredients"]["milk"]:
             print(f"Sorry there is not enough milk.")
-        if resources["coffee"] < MENU[coffee]["ingredients"]["coffee"]:
+        elif resources["coffee"] < MENU[coffee]["ingredients"]["coffee"]:
             print(f"Sorry there is not enough coffee.")
         else :
             money = sum - MENU[coffee]["cost"]
