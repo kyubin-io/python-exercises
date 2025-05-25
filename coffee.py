@@ -5,11 +5,10 @@ from coffee_menu import MENU, resources
 money = 0
 
 def report():
-    print(resources.water + "ml")
-    print(resources.milk + "ml")
-    print(resources.coffee + "g")
-    print("$" + money)
-
+    print(f"{resources["water"]}ml")
+    print(f"{resources["milk"]}ml")
+    print(f"{resources["coffee"]}g")
+    print(f"${money}")
 
 
 while True :
@@ -31,21 +30,17 @@ while True :
         sum = quarters + dimes + nickles + pennies
 
         
-        if sum < MENU[coffee].cost :
+        if sum < MENU[coffee]["cost"] :
             print("not enough money")
         else :
-            money = sum - MENU[coffee].cost
+            money = sum - MENU[coffee]["cost"]
 
-            resources.water -= MENU[coffee].ingredients.water
-            resources.milk -= MENU[coffee].ingredients.milk
-            resources.coffee -= MENU[coffee].ingredients.coffee
+            resources["water"] -= MENU[coffee]["ingredients"]["water"]
+            resources["milk"] -= MENU[coffee]["ingredients"]["milk"]
+            resources["coffee"] -= MENU[coffee]["ingredients"]["coffee"]
 
             print(f"Here is ${money} in change.")
             print(f"Here is your {coffee} Enjoy!")
 
-
-
-
-    
 
 
