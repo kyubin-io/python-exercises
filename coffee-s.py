@@ -34,6 +34,7 @@ def is_resource_sufficient(order_ingredients):
     """ Returns True when order can be made, False if ingredients are insufficient. """
     for item in order_ingredients:
         if order_ingredients[item] >= resources[item]:
+            # 읽기만 하는 경우라 resources는 global 붙일 필요 없다.
             print(f"Sorry there is not enough {item}.")
             return False
     return True
@@ -53,6 +54,7 @@ def is_transaction_successful(money_received, drink_cost):
         change = round(money_received - drink_cost, 2)
         print(f"Here is ${change} in change.")
         global profit
+        # profit에 새로운 값을 재할당하려고 하기 때문에, 파이썬은 함수 내부에서 profit이 로컬 변수라고 판단합니다. 그런데 아직 그 로컬 profit이 정의되지 않았기 때문에 오류가 나거나 의도대로 작동하지 않음. 따라서 global을 선언해줘야 함.
         profit += drink_cost
         return True
     else:
