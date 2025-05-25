@@ -1,16 +1,51 @@
 
-from coffee import MENU
+from coffee_menu import MENU, resources
 
 
-coffee = input("What would you like? (espresso/latte/cappuccino): ")
+money = 0
 
-print("Please insert coins.")
+def report():
+    print(resources.water + "ml")
+    print(resources.milk + "ml")
+    print(resources.coffee + "g")
+    print("$" + money)
 
-quarters = int(input("How many quarters?: "))
-dimes = int(input("How many dimes?: "))
-nickles = int(input("How many nickles?: "))
-pennies = int(input("How many pennies?: "))
 
-sum = quarters + dimes + nickles + pennies
 
-# if sum < 
+while True :
+    coffee = input("What would you like? (espresso/latte/cappuccino): ")
+
+    print(coffee)
+
+    if coffee == "report":
+        report()
+
+    else:
+        print("Please insert coins.")
+
+        quarters = int(input("How many quarters?: "))
+        dimes = int(input("How many dimes?: "))
+        nickles = int(input("How many nickles?: "))
+        pennies = int(input("How many pennies?: "))
+
+        sum = quarters + dimes + nickles + pennies
+
+        
+        if sum < MENU[coffee].cost :
+            print("not enough money")
+        else :
+            money = sum - MENU[coffee].cost
+
+            resources.water -= MENU[coffee].ingredients.water
+            resources.milk -= MENU[coffee].ingredients.milk
+            resources.coffee -= MENU[coffee].ingredients.coffee
+
+            print(f"Here is ${money} in change.")
+            print(f"Here is your {coffee} Enjoy!")
+
+
+
+
+    
+
+
